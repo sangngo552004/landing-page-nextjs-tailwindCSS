@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* 1. Khai báo màu sắc hệ thống */
+  --color-background: white;
+  --color-foreground: #171717;
+
+  /* 2. Khai báo màu Brand (thay cho tailwind.config.ts) */
+  --color-brand-start: #001D54;
+  --color-brand-end: #008C99;
+
+  /* Màu Brand mới cho tiêu đề Gradient */
+  --color-heading-start: #0019FF;
+  --color-heading-end: #F200FF;
+
+  --color-text-product: #00D4FF;
+
+  /* Màu cam cho Button & CTA */
+  --color-orange-btn-start: #FF6F00;
+  --color-orange-btn-mid: #FF9000;
+  --color-orange-btn-end: #FF8000;
+
+  /* Màu nền nhẹ cho trạng thái Hover của Outline */
+  --color-orange-soft: #fff7ed;
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* 4. Xử lý Dark Mode */
+@variant dark (&:where(.dark, .dark *));
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 5. Reset cơ bản */
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    /* Tailwind v4 dùng font-sans làm mặc định nếu đã định nghĩa ở trên */
+    @apply font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .text-gradient-brand {
+    @apply bg-linear-to-r
+    from-heading-start
+    to-heading-end
+    bg-clip-text
+    text-transparent;
+  }
 }
