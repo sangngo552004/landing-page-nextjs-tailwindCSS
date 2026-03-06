@@ -18,7 +18,7 @@ export default function Services() {
     ];
 
     return (
-        <section className="py-16 px-4 bg-white">
+        <section className="py-16 px-4 bg-gray-100">
             <div className="max-w-6xl mx-auto text-center">
 
                 <SectionHeading
@@ -30,20 +30,24 @@ export default function Services() {
                 />
 
                 {/* Tab Controls */}
-                <div className="inline-flex p-1 bg-cyan-50/50 border border-cyan-100 rounded-xl mb-12">
-                    {tabs.map((tab) => (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={`px-8 py-3 text-sm font-semibold rounded-lg transition-all duration-300 ${
-                                activeTab === tab.id
-                                    ? 'bg-[#A8F0F0] text-[#00334e] shadow-sm'
-                                    : 'text-gray-600 hover:text-gray-900 hover:bg-cyan-50'
-                            }`}
-                        >
-                            {tab.label}
-                        </button>
-                    ))}
+                <div className="flex justify-center mb-8 md:mb-12">
+                    <div className="inline-flex p-1 bg-cyan-50/50 border border-cyan-100 rounded-xl overflow-x-auto">
+
+                        {tabs.map((tab) => (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`px-4 md:px-6 lg:px-8 py-2 md:py-3 text-sm md:text-base font-semibold rounded-lg whitespace-nowrap transition-all duration-300 ${
+                                    activeTab === tab.id
+                                        ? "bg-[#A8F0F0] text-[#00334e] shadow-sm"
+                                        : "text-gray-600 hover:text-gray-900 hover:bg-cyan-50"
+                                }`}
+                            >
+                                {tab.label}
+                            </button>
+                        ))}
+
+                    </div>
                 </div>
 
                 {/* Tab Content Container */}

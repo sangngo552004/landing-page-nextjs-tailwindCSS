@@ -18,7 +18,7 @@ export default function Button({
     return (
         <button
             className={clsx(
-                "inline-flex items-center justify-center gap-2.5",
+                "inline-flex items-center justify-center",
                 "px-4 py-2",
                 "rounded-lg",
                 "text-sm",

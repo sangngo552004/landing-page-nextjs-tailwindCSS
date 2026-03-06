@@ -45,7 +45,13 @@ export default function ServiceCard({ item, type } : ServiceCardProps) {
             {/* Icon & Title */}
             <div className="text-center mb-6">
                 <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl">{isKey ? "🔑" : "🔄"}</span>
+                    <Image
+                        src="/imgs/products/icon.svg"
+                        alt="..."
+                        width={44}
+                        height={44}
+                        className="object-contain"
+                    />
                 </div>
                 <h3 className="font-extrabold text-gray-900 text-sm tracking-widest uppercase">
                     {item.title}
@@ -78,14 +84,28 @@ export default function ServiceCard({ item, type } : ServiceCardProps) {
                         </div>
                     </div>
                 ))}
-
-                {/* Inputs */}
-                <div className="grid grid-cols-2 gap-2 mt-6">
+                <div className="flex items-start gap-2.5 text-[13px]">
+                    <Image
+                        src="/imgs/products/checkIcon.svg"
+                        alt="Logo"
+                        width={26}
+                        height={26}
+                    />
+                    <div className="text-gray-700 font-medium leading-tight"> Ngày sử dụng</div>
                     <input
                         type="number"
                         placeholder="Ngày sử dụng"
                         className="bg-gray-50 border border-gray-100 rounded-lg px-3 py-2.5 text-xs outline-none focus:border-orange-400 transition-all"
                     />
+                </div>
+                <div className="flex items-start gap-2.5 text-[13px]">
+                    <Image
+                        src="/imgs/products/checkIcon.svg"
+                        alt="Logo"
+                        width={26}
+                        height={26}
+                    />
+                    <div className="text-gray-700 font-medium leading-tight"> Số lượng key</div>
                     <input
                         type="number"
                         placeholder="Số lượng key"

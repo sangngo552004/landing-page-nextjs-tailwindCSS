@@ -1,4 +1,6 @@
 import Image from "next/image";
+// Giả định Button của bạn có prop className hoặc dùng mặc định
+import Button from "@/components/ui/Button";
 
 interface ProxyItem {
     name: string;
@@ -6,61 +8,83 @@ interface ProxyItem {
     price: string | number;
 }
 
-// Định nghĩa kiểu dữ liệu cho các trường trong form
-interface FormField {
-    label: string;
-    value: string;
-    unit?: string;
-    type?: "select" | "text"; // Bạn có thể mở rộng thêm các type khác
-    disabled?: boolean;
-}
-
 interface StaticProxyCardProps {
     item: ProxyItem;
 }
-export default function StaticProxyCard({ item } : StaticProxyCardProps) {
+
+export default function StaticProxyCard({ item }: StaticProxyCardProps) {
     const fields = [
         { label: "Địa điểm", value: "Random", type: "select" },
         { label: "Ngày sử dụng", value: "1", unit: "Ngày" },
         { label: "Số lượng", value: "1" },
         { label: "Giao thức", value: "HTTP", type: "select" },
-        { label: "Đầu IP", value: "Random", disabled: true },
-        { label: "Tài khoản", value: "Random", disabled: true },
-        { label: "Mật khẩu", value: "Random", disabled: true },
+        { label: "Đầu IP", value: "Random" },
+        { label: "Tài khoản", value: "Random" },
+        { label: "Mật khẩu", value: "Random" },
     ];
 
     return (
-        <div className="bg-white rounded-3xl p-7 shadow-xl border border-gray-50">
-            <div className="h-14 relative mb-8 flex justify-center">
-                <Image src={item.logo} alt={item.name} width={120} height={50} className="object-contain" />
+        <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-[400px] border border-gray-100">
+            {/* Logo Section */}
+            <div className="flex justify-center pb-8 mb-8 border-b border-gray-100">
+                <div className="relative h-12 w-32">
+                    <Image
+                        src={item.logo}
+                        alt={item.name}
+                        fill
+                        className="object-contain"
+                    />
+                </div>
             </div>
 
-            <div className="space-y-3">
+            {/* Form Fields */}
+            <div className="space-y-5 border-b-2 border-gray-100 pb-4">
                 {fields.map((f, i) => (
-                    <div key={i} className="group">
-                        <label className="text-[11px] font-bold text-gray-400 ml-1 uppercase">{f.label}</label>
-                        <div className="relative mt-1">
+                    <div key={i} className="relative">
+                        {/* Label đè lên border */}
+                        <label className="absolute -top-2.5 left-4 bg-white px-1.5 text-[13px] font-medium text-gray-400 z-10">
+                            {f.label}
+                        </label>
+
+                        <div className="relative">
                             <input
-                                disabled={f.disabled}
+                                readOnly
                                 defaultValue={f.value}
-                                className={`w-full rounded-xl px-4 py-2.5 text-sm font-medium border transition-all outline-none
-                  ${f.disabled ? 'bg-gray-50 text-gray-300 border-gray-100' : 'bg-white border-gray-200 focus:border-orange-400'}`}
+                                className="w-full rounded-xl px-4 py-3.5 text-base font-semibold border border-gray-200 text-gray-800 focus:border-orange-500 outline-none transition-all"
                             />
-                            {f.unit && <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-400 font-bold">{f.unit}</span>}
-                            {f.type === "select" && <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-300">▼</span>}
+
+                            {/* Unit (Ngày) */}
+                            {f.unit && (
+                                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">
+                                    {f.unit}
+                                </span>
+                            )}
+
+                            {/* Icon mũi tên cho Select */}
+                            {f.type === "select" && (
+                                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}
             </div>
 
-            <div className="mt-8 pt-5 border-t border-dashed">
-                <div className="flex justify-between items-center mb-4 text-sm font-bold">
-                    <span className="text-gray-900 uppercase">Thành tiền:</span>
-                    <span className="text-xl text-orange-500">{item.price}đ</span>
+            {/* Footer Section */}
+            <div className="mt-4">
+                <div className="flex justify-between items-center mb-6">
+                    <span className="text-lg font-bold text-black">Thành tiền:</span>
+                    <span className="text-2xl font-bold text-orange-500">
+                        {item.price.toLocaleString('vi-VN')}đ
+                    </span>
                 </div>
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-orange-100">
+
+                <Button variant="primary" fullWidth={true}>
                     Mua hàng
-                </button>
+                </Button>
             </div>
         </div>
     );

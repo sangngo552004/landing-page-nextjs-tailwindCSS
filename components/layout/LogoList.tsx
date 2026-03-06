@@ -1,52 +1,73 @@
-'use client'; // Quan trọng: Vì có dùng hàm xử lý sự kiện click
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from "react";
+import { Phone, Facebook, Send, ChevronUp } from "lucide-react";
 
-const FloatingSidebar = () => {
-    const menuItems = [
-        { id: 1, icon: '/logos/phone.png', alt: 'Gọi điện', href: 'tel:0123456789', color: 'bg-green-500' },
-        { id: 2, icon: '/logos/facebook.png', alt: 'Facebook', href: 'https://facebook.com', color: 'bg-blue-600' },
-        { id: 3, icon: '/logos/telegram.svg', alt: 'Telegram', href: 'https://t.me/username', color: 'bg-sky-500' },
-        { id: 4, icon: '/logos/arrow-up.svg', alt: 'Lên đầu trang', href: '#', color: 'bg-gradient-to-b from-blue-400 to-indigo-600', isScroll: true },
-    ];
-
-    const scrollToTop = (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+export default function FloatingContacts() {
+    const [open, setOpen] = useState(true);
 
     return (
-        <div className="fixed right-5 bottom-10 z-50 flex flex-col gap-4 p-2 border border-blue-100 rounded-2xl bg-white/70 backdrop-blur-md shadow-2xl">
-            {menuItems.map((item) => (
-                <Link
-                    key={item.id}
-                    href={item.href}
-                    onClick={item.isScroll ? scrollToTop : undefined}
-                    aria-label={item.alt}
-                    className={`relative group flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 hover:scale-110 active:scale-95 ${item.color} shadow-lg`}
+        <div className="fixed right-6 bottom-24 z-50 flex flex-col items-center">
+
+            {/* Contact buttons */}
+            <div
+                className={`flex flex-col items-center gap-3 transition-all duration-300 ${
+                    open
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-4 pointer-events-none"
+                }`}
+            >
+                {/* Phone */}
+                <a
+                    href="tel:0123456789"
+                    className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500
+          text-white shadow-[0_0_15px_rgba(59,130,246,0.6)]
+          hover:scale-110 hover:shadow-[0_0_25px_rgba(59,130,246,0.9)]
+          transition"
                 >
-                    {/* Hiệu ứng sóng (Pulse) - Chỉ chạy khi không hover */}
-                    <div className="absolute inset-0 rounded-full bg-inherit animate-ping opacity-40 group-hover:hidden" />
+                    <Phone size={20} className="text-white" />
+                </a>
 
-                    <div className="relative z-10 w-6 h-6">
-                        <Image
-                            src={item.icon}
-                            alt={item.alt}
-                            fill
-                            // Chỉ dùng filter nếu bạn chắc chắn muốn tất cả icon biến thành màu trắng
-                            className="object-contain brightness-0 invert"
-                        />
-                    </div>
+                {/* Facebook */}
+                <a
+                    href="#"
+                    className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600
+          text-white shadow-[0_0_15px_rgba(59,130,246,0.6)]
+          hover:scale-110 hover:shadow-[0_0_25px_rgba(59,130,246,0.9)]
+          transition"
+                >
+                    <Facebook size={20} className="text-white" />
+                </a>
 
-                    {/* Tooltip nhỏ khi hover (Tùy chọn) */}
-                    <span className="absolute right-14 scale-0 group-hover:scale-100 transition-all bg-gray-800 text-white text-xs py-1 px-2 rounded-md whitespace-nowrap shadow-md">
-                        {item.alt}
-                    </span>
-                </Link>
-            ))}
+                {/* Telegram */}
+                <a
+                    href="#"
+                    className="w-12 h-12 flex items-center justify-center rounded-full bg-sky-500
+          text-white shadow-[0_0_15px_rgba(59,130,246,0.6)]
+          hover:scale-110 hover:shadow-[0_0_25px_rgba(59,130,246,0.9)]
+          transition"
+                >
+                    <Send size={20} className="text-white" />
+                </a>
+            </div>
+
+            {/* Toggle */}
+            <button
+                onClick={() => setOpen(!open)}
+                className="mt-3 w-12 h-12 flex items-center justify-center rounded-full
+        bg-gradient-to-b from-blue-400 to-blue-700
+        shadow-[0_0_15px_rgba(59,130,246,0.7)]
+        hover:shadow-[0_0_30px_rgba(59,130,246,1)]
+        hover:scale-110
+        transition"
+            >
+                <ChevronUp
+                    size={22}
+                    className={`text-white transition-transform duration-300 ${
+                        open ? "rotate-180" : ""
+                    }`}
+                />
+            </button>
         </div>
     );
-};
-
-export default FloatingSidebar;
+}

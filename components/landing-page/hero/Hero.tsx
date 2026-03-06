@@ -4,7 +4,7 @@ import SectionHeading from "@/components/common/SectionHeading"
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex flex-col items-center justify-start pt-20 px-4 overflow-hidden bg-linear-to-b from-brand-start to-brand-end">
+        <section className="relative min-h-screen flex flex-col items-center justify-start pt-20 px-4 bg-linear-to-b from-brand-start to-brand-end">
             <div className="flex flex-col items-center text-center z-10 max-w-7xl mx-auto gap-6">
 
                 <SectionHeading
@@ -12,7 +12,7 @@ export default function Hero() {
                     titleMain="cho mọi nhu cầu doanh nghiệp"
                 />
 
-                <div className="flex flex-wrap justify-center gap-6 text-white text-sm md:text-base font-medium">
+                <div className="flex flex-wrap justify-center gap-6 text-white text-sm md:text-base ">
                     <div className="flex items-center gap-2">
                         <Image
                             src="/imgs/hero/notBlockIcon.svg"
@@ -49,18 +49,15 @@ export default function Hero() {
 
             </div>
 
-            <div className="relative mt-16 w-full max-w-6xl mx-auto">
-                <div className="relative z-20 flex justify-center">
-                    <Image
-                        src="/imgs/hero/hero.svg"
-                        alt="Proxy Dashboard Mockup"
-                        width={1000}
-                        height={600}
-                        className="w-full h-auto object-contain"
-                        priority
-                    />
-                </div>
-
+            <div className="mt-10 max-w-6xl mx-auto px-6">
+                <Image
+                    src="/imgs/hero/hero.svg"
+                    alt="Proxy Dashboard Mockup"
+                    width={1200}
+                    height={720}
+                    className="w-full"
+                    priority
+                />
             </div>
 
         </section>

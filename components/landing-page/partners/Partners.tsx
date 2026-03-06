@@ -12,7 +12,7 @@ const PARTNERS_DATA = [
 
 export default function Partners() {
     return (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-100">
             <div className="max-w-7xl mx-auto px-4">
 
                 {/* Tái sử dụng SectionHeading */}
