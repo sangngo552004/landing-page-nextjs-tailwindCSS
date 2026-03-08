@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "@/components/ui/Button";
 
 interface ServiceItem {
     title: string;
@@ -120,9 +121,13 @@ export default function ServiceCard({ item, type } : ServiceCardProps) {
                     <span className="text-sm font-bold text-gray-900">Thành tiền:</span>
                     <span className="text-xl font-black text-orange-500">180.000đ</span>
                 </div>
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-orange-200 active:scale-95">
-                    Mua hàng
-                </button>
+                <Button
+                    variant="primary"
+                    fullWidth={true}
+                    className="rounded-full text-lg px-10 py-4 font-bold"
+                >
+                    Mua ngay
+                </Button>
             </div>
         </div>
     );

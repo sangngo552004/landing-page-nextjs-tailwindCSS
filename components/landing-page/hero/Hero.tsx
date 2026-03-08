@@ -1,6 +1,7 @@
 import Image from "next/image";
-import Button from "@/components/ui/Button"
-import SectionHeading from "@/components/common/SectionHeading"
+import Button from "@/components/ui/Button";
+import SectionHeading from "@/components/common/SectionHeading";
+import HeroFeatures from "./HeroFeatures"; // Import component mới
 
 export default function Hero() {
     return (
@@ -12,36 +13,8 @@ export default function Hero() {
                     titleMain="cho mọi nhu cầu doanh nghiệp"
                 />
 
-                <div className="flex flex-wrap justify-center gap-6 text-white text-sm md:text-base ">
-                    <div className="flex items-center gap-2">
-                        <Image
-                            src="/imgs/hero/notBlockIcon.svg"
-                            alt="Không bị chặn"
-                            width={16}
-                            height={16}
-                        />
-                        Không bị chặn
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Image
-                            src="/imgs/hero/integrateIcon.svg"
-                            alt="Tích hợp nhanh"
-                            width={16}
-                            height={16}
-                        />
-                        Tích hợp nhanh
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Image
-                            src="/imgs/hero/optimizeIcon.svg"
-                            alt="Tối ưu chi phí"
-                            width={16}
-                            height={16}
-                        />
-                        Tối ưu chi phí
-                    </div>
-
-                </div>
+                {/* Phần Features đã được tách ra */}
+                <HeroFeatures />
 
                 <Button variant="primary">
                     Mua hàng ngay
@@ -49,7 +22,7 @@ export default function Hero() {
 
             </div>
 
-            <div className="mt-10 max-w-6xl mx-auto px-6">
+            <div className="mt-10 max-w-7xl mx-auto">
                 <Image
                     src="/imgs/hero/hero.svg"
                     alt="Proxy Dashboard Mockup"
@@ -59,7 +32,6 @@ export default function Hero() {
                     priority
                 />
             </div>
-
         </section>
     );
 }

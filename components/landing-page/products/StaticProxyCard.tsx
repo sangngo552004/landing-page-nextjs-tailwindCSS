@@ -14,27 +14,26 @@ interface StaticProxyCardProps {
 
 export default function StaticProxyCard({ item }: StaticProxyCardProps) {
     const fields = [
-        { label: "Địa điểm", value: "Random", type: "select" },
-        { label: "Ngày sử dụng", value: "1", unit: "Ngày" },
+        { label: "Địa điểm", value: "", type: "select", placeHolder: "Random" },
+        { label: "Ngày sử dụng", value: "1", unit: "Ngày"  },
         { label: "Số lượng", value: "1" },
         { label: "Giao thức", value: "HTTP", type: "select" },
-        { label: "Đầu IP", value: "Random" },
-        { label: "Tài khoản", value: "Random" },
-        { label: "Mật khẩu", value: "Random" },
+        { label: "Đầu IP", value: "" , placeHolder: "Random"},
+        { label: "Tài khoản", value: "" , placeHolder: "Random"},
+        { label: "Mật khẩu", value: "" , placeHolder: "Random"},
     ];
 
     return (
-        <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-[400px] border border-gray-100">
+        <div className="bg-white rounded-2xl p-8 shadow-2xl  border border-gray-100">
             {/* Logo Section */}
             <div className="flex justify-center pb-8 mb-8 border-b border-gray-100">
-                <div className="relative h-12 w-32">
                     <Image
                         src={item.logo}
                         alt={item.name}
-                        fill
+                        width={200}
+                        height={100}
                         className="object-contain"
                     />
-                </div>
             </div>
 
             {/* Form Fields */}
@@ -50,6 +49,7 @@ export default function StaticProxyCard({ item }: StaticProxyCardProps) {
                             <input
                                 readOnly
                                 defaultValue={f.value}
+                                placeholder={f.placeHolder}
                                 className="w-full rounded-xl px-4 py-3.5 text-base font-semibold border border-gray-200 text-gray-800 focus:border-orange-500 outline-none transition-all"
                             />
 
@@ -82,8 +82,12 @@ export default function StaticProxyCard({ item }: StaticProxyCardProps) {
                     </span>
                 </div>
 
-                <Button variant="primary" fullWidth={true}>
-                    Mua hàng
+                <Button
+                    variant="primary"
+                    fullWidth={true}
+                    className="rounded-full text-lg px-10 py-4 font-bold"
+                >
+                    Mua ngay
                 </Button>
             </div>
         </div>
