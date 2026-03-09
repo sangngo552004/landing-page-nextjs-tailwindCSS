@@ -9,7 +9,6 @@ export default function FloatingContacts() {
     return (
         <div className="fixed right-6 bottom-24 z-50 flex flex-col items-center">
 
-            {/* Contact buttons */}
             <div
                 className={`flex flex-col items-center gap-3 transition-all duration-300 ${
                     open
@@ -17,7 +16,6 @@ export default function FloatingContacts() {
                         : "opacity-0 translate-y-4 pointer-events-none"
                 }`}
             >
-                {/* Phone */}
                 <a
                     href="tel:0123456789"
                     className="w-12 h-12 flex items-center justify-center rounded-full bg-green-500
@@ -28,7 +26,6 @@ export default function FloatingContacts() {
                     <Phone size={20} className="text-white" />
                 </a>
 
-                {/* Facebook */}
                 <a
                     href="#"
                     className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600
@@ -39,7 +36,6 @@ export default function FloatingContacts() {
                     <Facebook size={20} className="text-white" />
                 </a>
 
-                {/* Telegram */}
                 <a
                     href="#"
                     className="w-12 h-12 flex items-center justify-center rounded-full bg-sky-500
@@ -51,7 +47,6 @@ export default function FloatingContacts() {
                 </a>
             </div>
 
-            {/* Toggle */}
             <button
                 onClick={() => setOpen(!open)}
                 className="mt-3 w-12 h-12 flex items-center justify-center rounded-full

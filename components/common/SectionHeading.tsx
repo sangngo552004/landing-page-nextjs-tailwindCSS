@@ -11,7 +11,7 @@ export default function SectionHeading({
                                            titleGradient,
                                            description,
                                            mainColorClass = "text-white",
-                                           isReverse = false // Sử dụng prop này
+                                           isReverse = false
                                        }: SectionHeadingProps) {
     return (
         <div className={`${description ? "mb-10" : ""}  text-center`}>

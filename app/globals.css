@@ -1,32 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* 1. Khai báo màu sắc hệ thống */
+
   --color-background: white;
   --color-foreground: #171717;
 
-  /* 2. Khai báo màu Brand (thay cho tailwind.config.ts) */
   --color-brand-start: #001D54;
   --color-brand-end: #008C99;
 
-  /* Màu Brand mới cho tiêu đề Gradient */
   --color-heading-start: #0019FF;
   --color-heading-end: #F200FF;
 
   --color-text-product: #00D4FF;
 
-  /* Màu cam cho Button & CTA */
   --color-orange-btn-start: #FF6F00;
   --color-orange-btn-mid: #FF9000;
   --color-orange-btn-end: #FF8000;
 
-  /* Màu nền nhẹ cho trạng thái Hover của Outline */
   --color-orange-soft: #fff7ed;
 
 }
-
-/* 4. Xử lý Dark Mode */
-@variant dark (&:where(.dark, .dark *));
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -35,12 +28,12 @@
   }
 }
 
-/* 5. Reset cơ bản */
+
 @layer base {
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    /* Tailwind v4 dùng font-sans làm mặc định nếu đã định nghĩa ở trên */
+
     @apply font-sans antialiased;
   }
 }
@@ -55,15 +48,3 @@
   }
 }
 
-@layer utilities {
-  /* Ẩn thanh cuộn cho Chrome, Safari và Opera */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Ẩn thanh cuộn cho IE, Edge và Firefox */
-  .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-}

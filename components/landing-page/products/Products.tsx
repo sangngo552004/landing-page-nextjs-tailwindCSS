@@ -14,7 +14,7 @@ export default function Products() {
     const [activeTab, setActiveTab] = useState<TabType>("static");
 
     return (
-        <section className="bg-gray-100 py-10">
+        <section id="products" className="bg-gray-100 py-10">
             <div className="max-w-6xl mx-auto px-4 text-center">
                 <SectionHeading
                     titleGradient="Sản phẩm"
@@ -23,7 +23,7 @@ export default function Products() {
                     description="Bạn còn chần chừ gì nữa mà không cùng hợp tác với chúng tôi..."
                 />
 
-                {/* Sử dụng component đã tách */}
+
                 <CategoryTabs
                     categories={CATEGORIES}
                     activeTab={activeTab}

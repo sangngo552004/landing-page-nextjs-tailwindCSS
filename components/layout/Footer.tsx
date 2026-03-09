@@ -6,7 +6,6 @@ export default function Footer() {
         <footer className="w-full bg-linear-to-b from-brand-start to-brand-end text-white px-4">
             <div className="max-w-5xl mx-auto py-10">
 
-                {/* Phần trên: Logo và Thanh toán */}
                 <div className="flex flex-col md:flex-row items-center justify-between border-b border-white/20 pb-6 gap-6">
 
                     <Image
@@ -17,7 +16,6 @@ export default function Footer() {
                         className="h-auto w-auto"
                     />
 
-                    {/* Danh sách thanh toán: cho phép wrap (xuống dòng) trên màn hình nhỏ */}
                     <div className="flex flex-wrap justify-center items-center gap-3">
                         <Image src="/imgs/footer/mastercard.png" alt="mastercard" width={36} height={36} />
                         <Image src="/imgs/footer/visa.png" alt="visa" width={36} height={36} />
@@ -28,7 +26,6 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Phần dưới: Links và Copyright */}
                 <div className="mt-6 flex flex-col md:flex-row items-center justify-between text-sm text-white/80 gap-4">
 
                     <div className="flex flex-wrap justify-center gap-4 md:gap-6">

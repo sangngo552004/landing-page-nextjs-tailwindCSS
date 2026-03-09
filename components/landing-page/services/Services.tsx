@@ -30,17 +30,17 @@ export default function Services() {
                     description="Tối ưu hóa hoạt động trực tuyến của bạn với tốc độ vượt trội, độ tin cậy vững chắc và phạm vi toàn cầu."
                 />
 
-                {/* Sử dụng Component đã tách */}
+
                 <ServiceTabs
                     tabs={tabs}
                     activeTab={activeTab}
                     onChange={setActiveTab}
                 />
 
-                {/* Tab Content Container */}
-                <div className="relative overflow-hidden rounded-[32px] bg-linear-to-b from-brand-start to-brand-end p-8 md:p-12 text-white min-h-[450px] flex items-center shadow-xl">
+
+                <div className="relative overflow-hidden rounded-4xl bg-linear-to-b from-brand-start to-brand-end p-8 md:p-12 text-white min-h-[450px] flex items-center shadow-xl">
                     <motion.div
-                        key={activeTab} // Quan trọng: key thay đổi sẽ trigger animation mới
+                        key={activeTab}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4 }}

@@ -12,10 +12,9 @@ const PARTNERS_DATA = [
 
 export default function Partners() {
     return (
-        <section className="py-16 bg-gray-100">
+        <section id="partners" className="py-16 bg-gray-100">
             <div className="max-w-7xl mx-auto px-4">
 
-                {/* Tái sử dụng SectionHeading */}
                 <SectionHeading
                     titleGradient="Đối tác"
                     titleMain="của chúng tôi"
@@ -23,7 +22,6 @@ export default function Partners() {
                     description="Bạn còn chần chừ gì nữa mà không cùng hợp tác với chúng tôi, một trong những nhà cung cấp proxy uy tín và giá rẻ."
                 />
 
-                {/* Danh sách Logo Đối tác */}
                 <div className="mt-12 flex flex-wrap items-center justify-center ">
                     {PARTNERS_DATA.map((partner) => (
                         <div

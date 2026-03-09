@@ -13,7 +13,6 @@ export default function Header() {
         <header className="w-full bg-white border-b">
             <div className="max-w-6xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
 
-                {/* Logo */}
                 <Link href="/">
                     <Image
                         src="/imgs/header/logo.svg"
@@ -24,10 +23,9 @@ export default function Header() {
                     />
                 </Link>
 
-                {/* Desktop buttons */}
                 <div className="hidden md:flex items-center gap-3">
                     <Button variant="outline">
-                        Đăng ký
+                        Đăng ký tài khoản
                     </Button>
 
                     <Button variant="primary">
@@ -35,7 +33,7 @@ export default function Header() {
                     </Button>
                 </div>
 
-                {/* Hamburger */}
+
                 <button
                     className="md:hidden"
                     onClick={() => setIsOpen(!isOpen)}
@@ -45,7 +43,7 @@ export default function Header() {
 
             </div>
 
-            {/* Mobile menu */}
+
             {isOpen && (
                 <div className="md:hidden border-t px-4 py-4 flex flex-col gap-3">
                     <Button variant="outline">
